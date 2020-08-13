@@ -89,7 +89,7 @@ class News extends Component {
 
         return (
             <>
-                <h1>News Articles</h1>
+                <h1>News Articles...</h1>
 
                 <input type="text" onChange={this.handleChange}></input>
 
