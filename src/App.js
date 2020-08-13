@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+
+  // instance variables = state
+  constructor() {
+
+    super()
+    
+    // creating state
+    this.state = {
+      txt: 'this is a text value',
+      count: 0
+    }
+
+  }
+
+  handleClick = () => {
+    // BAD DOES NOT MANIPUALTE DOM
+    // this.state.count = this.state.count + 1;
+
+    this.setState({
+      count: this.state.count + 1
+    })
+
+    let date = new Date();
+
+    console.log(`${date}`);
+
+  }
+
+  render() {
+    return (
+      <>
+        <h1> {this.state.txt}</h1>
+
+        <br />
+
+        <button onClick={this.handleClick}>Click Me {this.state.count}</button>
+
+      </>
+    )
+  }
 }
 
-export default App;
+export default App
